@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Print Hello World
         run: echo "Hello, World!"
-      - uses: dtolnay/rust-toolchain@v1
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
       - name: Install cargo modules
         run: |
           cargo install cargo-modules
