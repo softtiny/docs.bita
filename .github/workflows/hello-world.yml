@@ -1,0 +1,25 @@
+name: Simple Hello World
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello World
+        run: echo "Hello, World!"
+      - uses: dtolnay/rust-toolchain@v1
+      - name: Install cargo modules
+        run: |
+          cargo install cargo-modules
+      - uses: actions/checkout@v4
+        with:
+          repository: 'oll3/bita'
+      - name: Graphical Module Structure
+        run: |
+          cargo modules dependencies --no-externs --no-fns --no-sysroot --no-traits --no-types --no-uses > graph.dep.dot
+      - name: Upload build
+        uses: actions/upload-artifact@master
+        with:
+          name: graph
+          path: graph.dep.dot
