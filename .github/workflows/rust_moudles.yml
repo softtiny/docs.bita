@@ -1,4 +1,4 @@
-name: Simple Hello World
+name: Rust module dependencies
 on:
   workflow_dispatch:
 
