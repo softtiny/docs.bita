@@ -1,0 +1,85 @@
+digraph {
+
+    graph [
+        label="bitar",
+        labelloc=t,
+
+        pad=0.4,
+
+        // Consider rendering the graph using a different layout algorithm, such as:
+        // [dot, neato, twopi, circo, fdp, sfdp]
+        layout=neato,
+        overlap=false,
+        splines="line",
+        rankdir=LR,
+
+        fontname="Helvetica", 
+        fontsize="36",
+    ];
+
+    node [
+        fontname="monospace",
+        fontsize="10",
+        shape="record",
+        style="filled",
+    ];
+
+    edge [
+        fontname="monospace",
+        fontsize="10",
+    ];
+
+    "bitar" [label="crate|bitar", fillcolor="#5397c8"]; // "crate" node
+    "bitar::api" [label="pub mod|api", fillcolor="#81c169"]; // "mod" node
+    "bitar::archive" [label="pub(crate) mod|archive", fillcolor="#f8c04c"]; // "mod" node
+    "bitar::archive_reader" [label="pub mod|archive_reader", fillcolor="#81c169"]; // "mod" node
+    "bitar::archive_reader::http_range_request" [label="pub(self) mod|archive_reader::http_range_request", fillcolor="#db5367"]; // "mod" node
+    "bitar::archive_reader::http_reader" [label="pub(self) mod|archive_reader::http_reader", fillcolor="#db5367"]; // "mod" node
+    "bitar::archive_reader::io_reader" [label="pub(self) mod|archive_reader::io_reader", fillcolor="#db5367"]; // "mod" node
+    "bitar::chunk" [label="pub(crate) mod|chunk", fillcolor="#f8c04c"]; // "mod" node
+    "bitar::chunk_dictionary" [label="pub mod|chunk_dictionary", fillcolor="#81c169"]; // "mod" node
+    "bitar::chunk_dictionary::chunk_compression" [label="pub mod|chunk_dictionary::chunk_compression", fillcolor="#81c169"]; // "mod" node
+    "bitar::chunk_dictionary::chunker_parameters" [label="pub mod|chunk_dictionary::chunker_parameters", fillcolor="#81c169"]; // "mod" node
+    "bitar::chunk_index" [label="pub(crate) mod|chunk_index", fillcolor="#f8c04c"]; // "mod" node
+    "bitar::chunk_location_map" [label="pub(crate) mod|chunk_location_map", fillcolor="#f8c04c"]; // "mod" node
+    "bitar::chunk_offset" [label="pub(crate) mod|chunk_offset", fillcolor="#f8c04c"]; // "mod" node
+    "bitar::chunker" [label="pub mod|chunker", fillcolor="#81c169"]; // "mod" node
+    "bitar::chunker::config" [label="pub(self) mod|chunker::config", fillcolor="#db5367"]; // "mod" node
+    "bitar::chunker::fixed_size" [label="pub(self) mod|chunker::fixed_size", fillcolor="#db5367"]; // "mod" node
+    "bitar::chunker::rolling_hash" [label="pub(self) mod|chunker::rolling_hash", fillcolor="#db5367"]; // "mod" node
+    "bitar::chunker::streaming_chunker" [label="pub(self) mod|chunker::streaming_chunker", fillcolor="#db5367"]; // "mod" node
+    "bitar::clone_output" [label="pub(crate) mod|clone_output", fillcolor="#f8c04c"]; // "mod" node
+    "bitar::compression" [label="pub(crate) mod|compression", fillcolor="#f8c04c"]; // "mod" node
+    "bitar::hashsum" [label="pub(crate) mod|hashsum", fillcolor="#f8c04c"]; // "mod" node
+    "bitar::header" [label="pub mod|header", fillcolor="#81c169"]; // "mod" node
+    "bitar::rolling_hash" [label="pub(crate) mod|rolling_hash", fillcolor="#f8c04c"]; // "mod" node
+    "bitar::rolling_hash::buzhash" [label="pub(self) mod|rolling_hash::buzhash", fillcolor="#db5367"]; // "mod" node
+    "bitar::rolling_hash::rollsum" [label="pub(self) mod|rolling_hash::rollsum", fillcolor="#db5367"]; // "mod" node
+
+    "bitar" -> "bitar::api" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bitar" -> "bitar::archive" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bitar" -> "bitar::archive_reader" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bitar" -> "bitar::chunk" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bitar" -> "bitar::chunk_dictionary" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bitar" -> "bitar::chunk_index" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bitar" -> "bitar::chunk_location_map" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bitar" -> "bitar::chunk_offset" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bitar" -> "bitar::chunker" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bitar" -> "bitar::clone_output" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bitar" -> "bitar::compression" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bitar" -> "bitar::hashsum" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bitar" -> "bitar::header" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bitar" -> "bitar::rolling_hash" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bitar::archive_reader" -> "bitar::archive_reader::http_range_request" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bitar::archive_reader" -> "bitar::archive_reader::http_reader" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bitar::archive_reader" -> "bitar::archive_reader::io_reader" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bitar::chunk_dictionary" -> "bitar::chunk_dictionary::chunk_compression" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bitar::chunk_dictionary" -> "bitar::chunk_dictionary::chunker_parameters" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bitar::chunker" -> "bitar::chunker::config" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bitar::chunker" -> "bitar::chunker::fixed_size" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bitar::chunker" -> "bitar::chunker::rolling_hash" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bitar::chunker" -> "bitar::chunker::streaming_chunker" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bitar::rolling_hash" -> "bitar::rolling_hash::buzhash" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bitar::rolling_hash" -> "bitar::rolling_hash::rollsum" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+
+}
