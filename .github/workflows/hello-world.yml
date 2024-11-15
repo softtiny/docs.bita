@@ -17,7 +17,7 @@ jobs:
           repository: 'oll3/bita'
       - name: Graphical Module Structure
         run: |
-          cargo modules dependencies --no-externs --no-fns --no-sysroot --no-traits --no-types --no-uses > graph.dep.dot
+          cargo modules dependencies --package bitar --no-externs --no-fns --no-sysroot --no-traits --no-types --no-uses > graph.dep.dot
       - name: Upload build
         uses: actions/upload-artifact@master
         with:
