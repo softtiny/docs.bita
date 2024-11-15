@@ -11,15 +11,19 @@ jobs:
         run: |
           sudo apt install -y graphviz
           cd graph
-          if [[ ! -f svgs ]];then
+          if [[ ! -d svgs ]];then
               mkdir svgs
           fi
           for fname in `ls .`;do
               echo $fname
-              noext=`basename $fname`
-              outname="${noext}.svg"
-              dot -Tsvg -o "./svgs/$outname" $fname
+              if [[ -f $fname ]];then
+                  noext="${fname%.*}"
+                  outname="${noext}.svg"
+                  dot -Tsvg -o "./svgs/$outname" $fname
+                  echo $outname
+              fi
           done
+
 
       - name: Upload build
         uses: actions/upload-artifact@master
