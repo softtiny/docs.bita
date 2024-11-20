@@ -17,9 +17,24 @@ jobs:
           repository: 'oll3/bita'
       - name: Graphical Module Structure
         run: |
-          cargo modules dependencies --package bitar --no-externs --no-fns --no-sysroot --no-traits --no-types --no-uses > graph.dep.dot
+          cargo modules dependencies --package bitar --no-externs --no-fns --no-sysroot --no-traits --no-types --no-uses > graph/graph.dep.dot
+          cargo modules dependencies --package bita --no-externs --no-fns --no-sysroot --no-traits --no-types --no-uses > graph/bita.dep.dot
+          sudo apt install -y graphviz
+          cd graph
+          if [[ ! -d svgs ]];then
+              mkdir svgs
+          fi
+          for fname in `ls .`;do
+              echo $fname
+              if [[ -f $fname ]];then
+                  noext="${fname%.*}"
+                  outname="${noext}.svg"
+                  dot -Tsvg -o "./svgs/$outname" $fname
+                  echo $outname
+              fi
+          done
       - name: Upload build
         uses: actions/upload-artifact@master
         with:
           name: graph
-          path: graph.dep.dot
+          path: graph
