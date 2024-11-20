@@ -17,6 +17,9 @@ jobs:
           repository: 'oll3/bita'
       - name: Graphical Module Structure
         run: |
+          if [[ ! -d graph]];then
+            mkdir graph
+          fi
           cargo modules dependencies --package bitar --no-externs --no-fns --no-sysroot --no-traits --no-types --no-uses > graph/graph.dep.dot
           cargo modules dependencies --package bita --no-externs --no-fns --no-sysroot --no-traits --no-types --no-uses > graph/bita.dep.dot
           sudo apt install -y graphviz
