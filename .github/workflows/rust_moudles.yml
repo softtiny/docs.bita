@@ -43,13 +43,13 @@ jobs:
           for fname in `ls .`;do
               echo $fname
               if [[ -f $fname ]];then
-                  if [[ $fname == *.dot]];then
+                  if [[ $fname == *.dot ]];then
                     noext="${fname%.*}"
                     outname="${noext}.svg"
                     dot -Tsvg -o "./svgs/$outname" $fname
                     echo $outname
                   fi
-                  if [[ $fname == *.hash]];then
+                  if [[ $fname == *.hash ]];then
                     noext="${fname%.*}"
                     outname="${noext}.svg"
                     ../.bin/freeze $fname -o "./svgs/$outname"
