@@ -27,7 +27,6 @@ jobs:
           curl --location-trusted https://github.com/charmbracelet/freeze/releases/download/v0.1.6/freeze_0.1.6_Linux_x86_64.tar.gz -o freeze.tgz
           7z x freeze.tgz
           7z e freeze.tar
-          export PATH=$PATH:`pwd`
           cd ..
           which freeze
           cargo modules dependencies --package bitar --no-externs --no-fns --no-sysroot --no-traits --no-types --no-uses > graph/graph.dep.dot
@@ -50,7 +49,7 @@ jobs:
                   if [[ $fname == *.hash]];then
                     noext="${fname%.*}"
                     outname="${noext}.svg"
-                    freeze $fname -o "./svgs/$outname"
+                    ../.bin/freeze $fname -o "./svgs/$outname"
                   fi
               fi
           done
