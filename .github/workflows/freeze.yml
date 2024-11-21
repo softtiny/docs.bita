@@ -13,11 +13,13 @@ jobs:
           7z x freeze.tgz
           7z e freeze.tar
           chmod +x freeze
+          curl --location-trusted https://github.com/charmbracelet/freeze/releases/download/v0.1.6/freeze_0.1.6_amd64.deb -o a.deb
+          sudo dpkg -i a.deb
           ls -l
           echo "000001"
           cat .github/workflows/freeze.yml
           echo "000002"
-          ./freeze .github/workflows/freeze.yml -l yaml
+          freeze .github/workflows/freeze.yml -l yaml
           echo "000003"
           ls -l
           ./freeze dist/bita.structure.txt
