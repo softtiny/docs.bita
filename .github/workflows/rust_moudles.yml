@@ -21,7 +21,7 @@ jobs:
             mkdir graph
           fi
           cargo modules dependencies --package bitar --no-externs --no-fns --no-sysroot --no-traits --no-types --no-uses > graph/graph.dep.dot
-          cargo modules dependencies --package bita --no-externs --no-fns --no-sysroot --no-traits --no-types --no-uses > graph/bita.dep.dot
+          cargo modules dependencies --package bita > graph/bita.dep.dot
           sudo apt install -y graphviz
           cd graph
           if [[ ! -d svgs ]];then
@@ -36,6 +36,7 @@ jobs:
                   echo $outname
               fi
           done
+          cargo modules structure  --package bit > graph/bita.structure.txt
       - name: Upload build
         uses: actions/upload-artifact@master
         with:
