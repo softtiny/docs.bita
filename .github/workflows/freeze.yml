@@ -21,6 +21,8 @@ jobs:
           echo "000001"
           cat .github/workflows/freeze.yml
           echo "000002"
+          freeze --execute "ls"
+          freeze --execute "pwd"
           freeze .github/workflows/freeze.yml -l yaml
           echo "000003"
           ls -l
