@@ -20,8 +20,19 @@ jobs:
           if [[ ! -d graph ]];then
             mkdir graph
           fi
+          if [[ ! -d .bin ]];then
+            mkdir .bin
+          fi
+          cd .bin 
+          curl https://github.com/charmbracelet/freeze/releases/download/v0.1.6/freeze_0.1.6_Linux_x86_64.tar.gz -o freeze.tgz
+          7z x freeze.tgz
+          7z e freeze.tar
+          export PATH=$PATH:`pwd`
+          cd ..
+          which freeze
           cargo modules dependencies --package bitar --no-externs --no-fns --no-sysroot --no-traits --no-types --no-uses > graph/graph.dep.dot
           cargo modules dependencies --package bita  --no-externs --no-sysroot > graph/bita.dep.dot
+          cargo modules structure  --package bita > graph/bita.structure.hash
           sudo apt install -y graphviz
           cd graph
           if [[ ! -d svgs ]];then
@@ -30,14 +41,20 @@ jobs:
           for fname in `ls .`;do
               echo $fname
               if [[ -f $fname ]];then
-                  noext="${fname%.*}"
-                  outname="${noext}.svg"
-                  dot -Tsvg -o "./svgs/$outname" $fname
-                  echo $outname
+                  if [[ $fname == *.dot]];then
+                    noext="${fname%.*}"
+                    outname="${noext}.svg"
+                    dot -Tsvg -o "./svgs/$outname" $fname
+                    echo $outname
+                  fi
+                  if [[ $fname == *.hash]];then
+                    noext="${fname%.*}"
+                    outname="${noext}.svg"
+                    freeze $fname -o "./svgs/$outname"
+                  fi
               fi
           done
-          cd ..
-          cargo modules structure  --package bita > graph/bita.structure.txt
+          
       - name: Upload build
         uses: actions/upload-artifact@master
         with:

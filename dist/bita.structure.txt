@@ -1,0 +1,57 @@
+
+[2m[0m[38;5;68mcrate[0m bita
+[2m├── [0m[38;5;68mmod[0m cli[2m:[0m [38;5;215mpub(crate)[0m
+[2m│   ├── [0m[38;5;68menum[0m CommandOpts[2m:[0m [38;5;107mpub[0m
+[2m│   ├── [0m[38;5;68mstruct[0m LogOpts[2m:[0m [38;5;107mpub[0m
+[2m│   │   └── [0m[38;5;68mfn[0m new[2m:[0m [38;5;167mpub(self)[0m
+[2m│   ├── [0m[38;5;68mfn[0m add_archive_input_http_args[2m:[0m [38;5;167mpub(self)[0m
+[2m│   ├── [0m[38;5;68mfn[0m add_chunker_args[2m:[0m [38;5;167mpub(self)[0m
+[2m│   ├── [0m[38;5;68mfn[0m buffered_chunks_arg[2m:[0m [38;5;167mpub(self)[0m
+[2m│   ├── [0m[38;5;68mfn[0m force_create_arg[2m:[0m [38;5;167mpub(self)[0m
+[2m│   ├── [0m[38;5;68mfn[0m input_archive_arg[2m:[0m [38;5;167mpub(self)[0m
+[2m│   ├── [0m[38;5;68mfn[0m output_file_arg[2m:[0m [38;5;167mpub(self)[0m
+[2m│   ├── [0m[38;5;68mfn[0m parse_chunker_config[2m:[0m [38;5;167mpub(self)[0m
+[2m│   ├── [0m[38;5;68mfn[0m parse_chunker_opts[2m:[0m [38;5;167mpub(self)[0m
+[2m│   ├── [0m[38;5;68mfn[0m parse_compression[2m:[0m [38;5;167mpub(self)[0m
+[2m│   ├── [0m[38;5;68mfn[0m parse_hash_sum[2m:[0m [38;5;167mpub(self)[0m
+[2m│   ├── [0m[38;5;68mfn[0m parse_input_archive_config[2m:[0m [38;5;167mpub(self)[0m
+[2m│   └── [0m[38;5;68mfn[0m parse_opts[2m:[0m [38;5;107mpub[0m
+[2m├── [0m[38;5;68mmod[0m clone_cmd[2m:[0m [38;5;215mpub(crate)[0m
+[2m│   ├── [0m[38;5;68menum[0m InputArchive[2m:[0m [38;5;107mpub[0m
+[2m│   │   └── [0m[38;5;68mfn[0m source[2m:[0m [38;5;167mpub(self)[0m
+[2m│   ├── [0m[38;5;68mstruct[0m Options[2m:[0m [38;5;107mpub[0m
+[2m│   ├── [0m[38;5;68mstruct[0m RemoteInput[2m:[0m [38;5;107mpub[0m
+[2m│   ├── [0m[38;5;68masync fn[0m chunk_index_from_readable[2m:[0m [38;5;167mpub(self)[0m
+[2m│   ├── [0m[38;5;68masync fn[0m clone_archive[2m:[0m [38;5;167mpub(self)[0m
+[2m│   ├── [0m[38;5;68masync fn[0m clone_cmd[2m:[0m [38;5;107mpub[0m
+[2m│   ├── [0m[38;5;68masync fn[0m clone_from_archive[2m:[0m [38;5;167mpub(self)[0m
+[2m│   ├── [0m[38;5;68masync fn[0m clone_from_readable[2m:[0m [38;5;167mpub(self)[0m
+[2m│   ├── [0m[38;5;68masync fn[0m feed_output[2m:[0m [38;5;167mpub(self)[0m
+[2m│   ├── [0m[38;5;68masync fn[0m file_checksum[2m:[0m [38;5;167mpub(self)[0m
+[2m│   └── [0m[38;5;68masync fn[0m file_size[2m:[0m [38;5;167mpub(self)[0m
+[2m├── [0m[38;5;68mmod[0m compress_cmd[2m:[0m [38;5;215mpub(crate)[0m
+[2m│   ├── [0m[38;5;68mstruct[0m Options[2m:[0m [38;5;107mpub[0m
+[2m│   ├── [0m[38;5;68masync fn[0m chunk_input[2m:[0m [38;5;167mpub(self)[0m
+[2m│   └── [0m[38;5;68masync fn[0m compress_cmd[2m:[0m [38;5;107mpub[0m
+[2m├── [0m[38;5;68mmod[0m diff_cmd[2m:[0m [38;5;215mpub(crate)[0m
+[2m│   ├── [0m[38;5;68mstruct[0m ChunkDescriptor[2m:[0m [38;5;167mpub(self)[0m
+[2m│   ├── [0m[38;5;68mstruct[0m ChunkerResult[2m:[0m [38;5;167mpub(self)[0m
+[2m│   ├── [0m[38;5;68mstruct[0m Options[2m:[0m [38;5;107mpub[0m
+[2m│   ├── [0m[38;5;68masync fn[0m chunk_file[2m:[0m [38;5;167mpub(self)[0m
+[2m│   ├── [0m[38;5;68masync fn[0m diff_cmd[2m:[0m [38;5;107mpub[0m
+[2m│   ├── [0m[38;5;68mfn[0m print_info[2m:[0m [38;5;167mpub(self)[0m
+[2m│   └── [0m[38;5;68mfn[0m selection_string[2m:[0m [38;5;167mpub(self)[0m
+[2m├── [0m[38;5;68mmod[0m info_cmd[2m:[0m [38;5;215mpub(crate)[0m
+[2m│   ├── [0m[38;5;68mstruct[0m Options[2m:[0m [38;5;107mpub[0m
+[2m│   ├── [0m[38;5;68masync fn[0m info_cmd[2m:[0m [38;5;107mpub[0m
+[2m│   ├── [0m[38;5;68masync fn[0m info_impl[2m:[0m [38;5;167mpub(self)[0m
+[2m│   ├── [0m[38;5;68mfn[0m print_archive[2m:[0m [38;5;107mpub[0m
+[2m│   ├── [0m[38;5;68masync fn[0m print_archive_reader[2m:[0m [38;5;107mpub[0m
+[2m│   ├── [0m[38;5;68mfn[0m print_chunker_config[2m:[0m [38;5;107mpub[0m
+[2m│   └── [0m[38;5;68mfn[0m print_rolling_hash_config[2m:[0m [38;5;167mpub(self)[0m
+[2m├── [0m[38;5;68mfn[0m init_log[2m:[0m [38;5;215mpub(crate)[0m
+[2m├── [0m[38;5;68mfn[0m main[2m:[0m [38;5;215mpub(crate)[0m
+[2m└── [0m[38;5;68mmod[0m string_utils[2m:[0m [38;5;215mpub(crate)[0m
+[2m    ├── [0m[38;5;68menum[0m ParseHumanSizeError[2m:[0m [38;5;107mpub[0m
+[2m    ├── [0m[38;5;68mfn[0m hex_str_to_vec[2m:[0m [38;5;107mpub[0m
+[2m    └── [0m[38;5;68mfn[0m parse_human_size[2m:[0m [38;5;107mpub[0m
