@@ -17,7 +17,7 @@ jobs:
           ls -l
           echo "000001"
           
-          freeze --execute "ls"
+          freeze --execute "ls" -l txt
           echo "000002"
           freeze --execute "pwd"
           echo "000003"
