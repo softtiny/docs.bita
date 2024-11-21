@@ -36,6 +36,7 @@ jobs:
                   echo $outname
               fi
           done
+          cd ..
           cargo modules structure  --package bit > graph/bita.structure.txt
       - name: Upload build
         uses: actions/upload-artifact@master
