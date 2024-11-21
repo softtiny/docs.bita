@@ -53,7 +53,7 @@ jobs:
                   if [[ $fname == *.hash ]];then
                     noext="${fname%.*}"
                     outname="${noext}.svg"
-                    ../.bin/freeze $fname -o "./svgs/$outname" -l txt
+                    ../.bin/freeze $fname -o "./svgs/$outname" -l txt || echo $fname
                   fi
               fi
           done
