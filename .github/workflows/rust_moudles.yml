@@ -27,8 +27,9 @@ jobs:
           curl --location-trusted https://github.com/charmbracelet/freeze/releases/download/v0.1.6/freeze_0.1.6_Linux_x86_64.tar.gz -o freeze.tgz
           7z x freeze.tgz
           7z e freeze.tar
+          ls
           cd ..
-          which freeze
+          pwd
           cargo modules dependencies --package bitar --no-externs --no-fns --no-sysroot --no-traits --no-types --no-uses > graph/graph.dep.dot
           cargo modules dependencies --package bita  --no-externs --no-sysroot > graph/bita.dep.dot
           cargo modules structure  --package bita > graph/bita.structure.hash
