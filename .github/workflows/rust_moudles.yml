@@ -33,8 +33,10 @@ jobs:
           cargo modules dependencies --package bitar --no-externs --no-fns --no-sysroot --no-traits --no-types --no-uses > graph/graph.dep.dot
           cargo modules dependencies --package bita  --no-externs --no-sysroot > graph/bita.dep.dot
           cargo modules structure  --package bita > graph/bita.structure.hash
-          sudo apt install -y graphviz
+          sudo apt-get install -y graphviz
+          ls
           cd graph
+          pwd
           if [[ ! -d svgs ]];then
               mkdir svgs
           fi
