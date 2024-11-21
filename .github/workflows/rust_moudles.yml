@@ -37,7 +37,7 @@ jobs:
               fi
           done
           cd ..
-          cargo modules structure  --package bit > graph/bita.structure.txt
+          cargo modules structure  --package bita > graph/bita.structure.txt
       - name: Upload build
         uses: actions/upload-artifact@master
         with:
