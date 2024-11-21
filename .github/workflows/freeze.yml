@@ -14,7 +14,7 @@ jobs:
           7z e freeze.tar
           chmod +x freeze
           ls -l
-          ./freeze .github/workflows/freeze.yml
+          ./freeze .github/workflows/freeze.yml -l yaml
           ls -l
           ./freeze dist/bita.structure.txt
           ls -l
