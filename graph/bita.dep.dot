@@ -31,17 +31,164 @@ digraph {
 
     "bita" [label="crate|bita", fillcolor="#5397c8"]; // "crate" node
     "bita::cli" [label="pub(crate) mod|cli", fillcolor="#f8c04c"]; // "mod" node
+    "bita::cli::CommandOpts" [label="pub enum|cli::CommandOpts", fillcolor="#81c169"]; // "enum" node
+    "bita::cli::LogOpts" [label="pub struct|cli::LogOpts", fillcolor="#81c169"]; // "struct" node
+    "bita::cli::LogOpts::new" [label="pub(self) fn|cli::LogOpts::new", fillcolor="#db5367"]; // "fn" node
+    "bita::cli::add_archive_input_http_args" [label="pub(self) fn|cli::add_archive_input_http_args", fillcolor="#db5367"]; // "fn" node
+    "bita::cli::add_chunker_args" [label="pub(self) fn|cli::add_chunker_args", fillcolor="#db5367"]; // "fn" node
+    "bita::cli::buffered_chunks_arg" [label="pub(self) fn|cli::buffered_chunks_arg", fillcolor="#db5367"]; // "fn" node
+    "bita::cli::force_create_arg" [label="pub(self) fn|cli::force_create_arg", fillcolor="#db5367"]; // "fn" node
+    "bita::cli::input_archive_arg" [label="pub(self) fn|cli::input_archive_arg", fillcolor="#db5367"]; // "fn" node
+    "bita::cli::output_file_arg" [label="pub(self) fn|cli::output_file_arg", fillcolor="#db5367"]; // "fn" node
+    "bita::cli::parse_chunker_config" [label="pub(self) fn|cli::parse_chunker_config", fillcolor="#db5367"]; // "fn" node
+    "bita::cli::parse_chunker_opts" [label="pub(self) fn|cli::parse_chunker_opts", fillcolor="#db5367"]; // "fn" node
+    "bita::cli::parse_compression" [label="pub(self) fn|cli::parse_compression", fillcolor="#db5367"]; // "fn" node
+    "bita::cli::parse_hash_sum" [label="pub(self) fn|cli::parse_hash_sum", fillcolor="#db5367"]; // "fn" node
+    "bita::cli::parse_input_archive_config" [label="pub(self) fn|cli::parse_input_archive_config", fillcolor="#db5367"]; // "fn" node
+    "bita::cli::parse_opts" [label="pub fn|cli::parse_opts", fillcolor="#81c169"]; // "fn" node
     "bita::clone_cmd" [label="pub(crate) mod|clone_cmd", fillcolor="#f8c04c"]; // "mod" node
+    "bita::clone_cmd::InputArchive" [label="pub enum|clone_cmd::InputArchive", fillcolor="#81c169"]; // "enum" node
+    "bita::clone_cmd::InputArchive::source" [label="pub(self) fn|clone_cmd::InputArchive::source", fillcolor="#db5367"]; // "fn" node
+    "bita::clone_cmd::Options" [label="pub struct|clone_cmd::Options", fillcolor="#81c169"]; // "struct" node
+    "bita::clone_cmd::RemoteInput" [label="pub struct|clone_cmd::RemoteInput", fillcolor="#81c169"]; // "struct" node
+    "bita::clone_cmd::chunk_index_from_readable" [label="pub(self) async fn|clone_cmd::chunk_index_from_readable", fillcolor="#db5367"]; // "async fn" node
+    "bita::clone_cmd::clone_archive" [label="pub(self) async fn|clone_cmd::clone_archive", fillcolor="#db5367"]; // "async fn" node
+    "bita::clone_cmd::clone_cmd" [label="pub async fn|clone_cmd::clone_cmd", fillcolor="#81c169"]; // "async fn" node
+    "bita::clone_cmd::clone_from_archive" [label="pub(self) async fn|clone_cmd::clone_from_archive", fillcolor="#db5367"]; // "async fn" node
+    "bita::clone_cmd::clone_from_readable" [label="pub(self) async fn|clone_cmd::clone_from_readable", fillcolor="#db5367"]; // "async fn" node
+    "bita::clone_cmd::feed_output" [label="pub(self) async fn|clone_cmd::feed_output", fillcolor="#db5367"]; // "async fn" node
+    "bita::clone_cmd::file_checksum" [label="pub(self) async fn|clone_cmd::file_checksum", fillcolor="#db5367"]; // "async fn" node
+    "bita::clone_cmd::file_size" [label="pub(self) async fn|clone_cmd::file_size", fillcolor="#db5367"]; // "async fn" node
     "bita::compress_cmd" [label="pub(crate) mod|compress_cmd", fillcolor="#f8c04c"]; // "mod" node
+    "bita::compress_cmd::Options" [label="pub struct|compress_cmd::Options", fillcolor="#81c169"]; // "struct" node
+    "bita::compress_cmd::chunk_input" [label="pub(self) async fn|compress_cmd::chunk_input", fillcolor="#db5367"]; // "async fn" node
+    "bita::compress_cmd::compress_cmd" [label="pub async fn|compress_cmd::compress_cmd", fillcolor="#81c169"]; // "async fn" node
     "bita::diff_cmd" [label="pub(crate) mod|diff_cmd", fillcolor="#f8c04c"]; // "mod" node
+    "bita::diff_cmd::ChunkDescriptor" [label="pub(self) struct|diff_cmd::ChunkDescriptor", fillcolor="#db5367"]; // "struct" node
+    "bita::diff_cmd::ChunkerResult" [label="pub(self) struct|diff_cmd::ChunkerResult", fillcolor="#db5367"]; // "struct" node
+    "bita::diff_cmd::Options" [label="pub struct|diff_cmd::Options", fillcolor="#81c169"]; // "struct" node
+    "bita::diff_cmd::chunk_file" [label="pub(self) async fn|diff_cmd::chunk_file", fillcolor="#db5367"]; // "async fn" node
+    "bita::diff_cmd::diff_cmd" [label="pub async fn|diff_cmd::diff_cmd", fillcolor="#81c169"]; // "async fn" node
+    "bita::diff_cmd::print_info" [label="pub(self) fn|diff_cmd::print_info", fillcolor="#db5367"]; // "fn" node
+    "bita::diff_cmd::selection_string" [label="pub(self) fn|diff_cmd::selection_string", fillcolor="#db5367"]; // "fn" node
     "bita::info_cmd" [label="pub(crate) mod|info_cmd", fillcolor="#f8c04c"]; // "mod" node
+    "bita::info_cmd::Options" [label="pub struct|info_cmd::Options", fillcolor="#81c169"]; // "struct" node
+    "bita::info_cmd::info_cmd" [label="pub async fn|info_cmd::info_cmd", fillcolor="#81c169"]; // "async fn" node
+    "bita::info_cmd::info_impl" [label="pub(self) async fn|info_cmd::info_impl", fillcolor="#db5367"]; // "async fn" node
+    "bita::info_cmd::print_archive" [label="pub fn|info_cmd::print_archive", fillcolor="#81c169"]; // "fn" node
+    "bita::info_cmd::print_archive_reader" [label="pub async fn|info_cmd::print_archive_reader", fillcolor="#81c169"]; // "async fn" node
+    "bita::info_cmd::print_chunker_config" [label="pub fn|info_cmd::print_chunker_config", fillcolor="#81c169"]; // "fn" node
+    "bita::info_cmd::print_rolling_hash_config" [label="pub(self) fn|info_cmd::print_rolling_hash_config", fillcolor="#db5367"]; // "fn" node
+    "bita::init_log" [label="pub(crate) fn|init_log", fillcolor="#f8c04c"]; // "fn" node
+    "bita::main" [label="pub(crate) fn|main", fillcolor="#f8c04c"]; // "fn" node
     "bita::string_utils" [label="pub(crate) mod|string_utils", fillcolor="#f8c04c"]; // "mod" node
+    "bita::string_utils::ParseHumanSizeError" [label="pub enum|string_utils::ParseHumanSizeError", fillcolor="#81c169"]; // "enum" node
+    "bita::string_utils::hex_str_to_vec" [label="pub fn|string_utils::hex_str_to_vec", fillcolor="#81c169"]; // "fn" node
+    "bita::string_utils::parse_human_size" [label="pub fn|string_utils::parse_human_size", fillcolor="#81c169"]; // "fn" node
 
     "bita" -> "bita::cli" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita" -> "bita::cli::CommandOpts" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita" -> "bita::cli::LogOpts" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita" -> "bita::cli::parse_opts" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
     "bita" -> "bita::clone_cmd" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
     "bita" -> "bita::compress_cmd" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
     "bita" -> "bita::diff_cmd" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
     "bita" -> "bita::info_cmd" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita" -> "bita::init_log" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita" -> "bita::main" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
     "bita" -> "bita::string_utils" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::cli" -> "bita::cli::CommandOpts" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::cli" -> "bita::cli::LogOpts" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::cli" -> "bita::cli::add_archive_input_http_args" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::cli" -> "bita::cli::add_chunker_args" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::cli" -> "bita::cli::buffered_chunks_arg" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::cli" -> "bita::cli::force_create_arg" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::cli" -> "bita::cli::input_archive_arg" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::cli" -> "bita::cli::output_file_arg" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::cli" -> "bita::cli::parse_chunker_config" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::cli" -> "bita::cli::parse_chunker_opts" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::cli" -> "bita::cli::parse_compression" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::cli" -> "bita::cli::parse_hash_sum" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::cli" -> "bita::cli::parse_input_archive_config" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::cli" -> "bita::cli::parse_opts" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::cli" -> "bita::clone_cmd" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::cli" -> "bita::compress_cmd" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::cli" -> "bita::diff_cmd" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::cli" -> "bita::info_cmd" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::cli" -> "bita::string_utils::ParseHumanSizeError" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::cli" -> "bita::string_utils::hex_str_to_vec" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::cli" -> "bita::string_utils::parse_human_size" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::cli::CommandOpts" -> "bita::clone_cmd::Options" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::cli::CommandOpts" -> "bita::compress_cmd::Options" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::cli::CommandOpts" -> "bita::diff_cmd::Options" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::cli::CommandOpts" -> "bita::info_cmd::Options" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::cli::LogOpts" -> "bita::cli::LogOpts::new" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::cli::LogOpts::new" -> "bita::cli::LogOpts" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::cli::parse_input_archive_config" -> "bita::clone_cmd::InputArchive" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::cli::parse_input_archive_config" -> "bita::clone_cmd::RemoteInput" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::cli::parse_opts" -> "bita::cli::CommandOpts" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::cli::parse_opts" -> "bita::cli::LogOpts" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::cli::parse_opts" -> "bita::clone_cmd::InputArchive" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::cli::parse_opts" -> "bita::clone_cmd::Options" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::cli::parse_opts" -> "bita::compress_cmd::Options" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::cli::parse_opts" -> "bita::diff_cmd::Options" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::cli::parse_opts" -> "bita::info_cmd::Options" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::clone_cmd" -> "bita::clone_cmd::InputArchive" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::clone_cmd" -> "bita::clone_cmd::Options" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::clone_cmd" -> "bita::clone_cmd::RemoteInput" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::clone_cmd" -> "bita::clone_cmd::chunk_index_from_readable" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::clone_cmd" -> "bita::clone_cmd::clone_archive" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::clone_cmd" -> "bita::clone_cmd::clone_cmd" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::clone_cmd" -> "bita::clone_cmd::clone_from_archive" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::clone_cmd" -> "bita::clone_cmd::clone_from_readable" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::clone_cmd" -> "bita::clone_cmd::feed_output" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::clone_cmd" -> "bita::clone_cmd::file_checksum" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::clone_cmd" -> "bita::clone_cmd::file_size" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::clone_cmd" -> "bita::info_cmd" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::clone_cmd::InputArchive" -> "bita::clone_cmd::InputArchive::source" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::clone_cmd::InputArchive::source" -> "bita::clone_cmd::InputArchive" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::clone_cmd::Options" -> "bita::clone_cmd::InputArchive" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::clone_cmd::clone_archive" -> "bita::clone_cmd::Options" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::clone_cmd::clone_cmd" -> "bita::clone_cmd::InputArchive" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::clone_cmd::clone_cmd" -> "bita::clone_cmd::Options" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::compress_cmd" -> "bita::compress_cmd::Options" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::compress_cmd" -> "bita::compress_cmd::chunk_input" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::compress_cmd" -> "bita::compress_cmd::compress_cmd" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::compress_cmd" -> "bita::info_cmd" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::compress_cmd::compress_cmd" -> "bita::compress_cmd::Options" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::diff_cmd" -> "bita::diff_cmd::ChunkDescriptor" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::diff_cmd" -> "bita::diff_cmd::ChunkerResult" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::diff_cmd" -> "bita::diff_cmd::Options" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::diff_cmd" -> "bita::diff_cmd::chunk_file" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::diff_cmd" -> "bita::diff_cmd::diff_cmd" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::diff_cmd" -> "bita::diff_cmd::print_info" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::diff_cmd" -> "bita::diff_cmd::selection_string" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::diff_cmd" -> "bita::info_cmd" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::diff_cmd::chunk_file" -> "bita::diff_cmd::ChunkDescriptor" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::diff_cmd::chunk_file" -> "bita::diff_cmd::ChunkerResult" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::diff_cmd::diff_cmd" -> "bita::diff_cmd::ChunkerResult" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::diff_cmd::diff_cmd" -> "bita::diff_cmd::Options" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::diff_cmd::print_info" -> "bita::diff_cmd::ChunkerResult" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::info_cmd" -> "bita::clone_cmd::InputArchive" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::info_cmd" -> "bita::info_cmd::Options" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::info_cmd" -> "bita::info_cmd::info_cmd" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::info_cmd" -> "bita::info_cmd::info_impl" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::info_cmd" -> "bita::info_cmd::print_archive" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::info_cmd" -> "bita::info_cmd::print_archive_reader" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::info_cmd" -> "bita::info_cmd::print_chunker_config" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::info_cmd" -> "bita::info_cmd::print_rolling_hash_config" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::info_cmd::Options" -> "bita::clone_cmd::InputArchive" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::info_cmd::info_cmd" -> "bita::clone_cmd::InputArchive" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::info_cmd::info_cmd" -> "bita::info_cmd::Options" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::init_log" -> "bita::cli::LogOpts" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::main" -> "bita::cli::CommandOpts" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::main" -> "bita::clone_cmd::Options" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::main" -> "bita::compress_cmd::Options" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::main" -> "bita::diff_cmd::Options" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::main" -> "bita::info_cmd::Options" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
+    "bita::string_utils" -> "bita::string_utils::ParseHumanSizeError" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::string_utils" -> "bita::string_utils::hex_str_to_vec" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::string_utils" -> "bita::string_utils::parse_human_size" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "bita::string_utils::parse_human_size" -> "bita::string_utils::ParseHumanSizeError" [label="uses", color="#7f7f7f", style="dashed"] [constraint=false]; // "uses" edge
 
 }
