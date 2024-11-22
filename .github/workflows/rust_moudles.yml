@@ -35,6 +35,7 @@ jobs:
           cargo modules dependencies --package bitar --no-externs --no-fns --no-sysroot --no-traits --no-types --no-uses > graph/graph.dep.dot
           cargo modules dependencies --package bita  --no-externs --no-sysroot > graph/bita.dep.dot
           cargo modules structure  --package bita  | freeze -l txt -o graph/svgs/bita.structure.svg -
+          cargo modules structure  --package bitar  | freeze -l txt -o graph/svgs/bitar.structure.svg -
           sudo apt-get install -y graphviz
           ls
           cd graph
