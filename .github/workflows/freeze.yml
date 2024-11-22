@@ -12,12 +12,10 @@ jobs:
          
           curl --location-trusted https://github.com/charmbracelet/freeze/releases/download/v0.1.6/freeze_0.1.6_amd64.deb -o a.deb
           sudo dpkg -i a.deb
-          sudo apt-get install -y zsh
-          zsh
           ls -l
           echo "000001"
-          
-          freeze --execute "ls" -l txt
+
+          echo 333 | freeze -
           echo "000002"
           freeze --execute "pwd"
           echo "000003"
