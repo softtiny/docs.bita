@@ -16,11 +16,12 @@ jobs:
           echo "000001"
 
           echo 333 | freeze -l txt -
+          ls -l
+          cat dist/bita.structure.txt | freeze -l txt -o aa.svg -
+          ls -l
           echo "000002"
-          freeze --execute "pwd"
-          echo "000003"
-          freeze .github/workflows/freeze.yml -l yaml
-          echo "000004"
-          ls -l
-          ./freeze dist/bita.structure.txt
-          ls -l
+      - name: Upload build
+        uses: actions/upload-artifact@master
+        with:
+          name: graph
+          path: aa.svg
