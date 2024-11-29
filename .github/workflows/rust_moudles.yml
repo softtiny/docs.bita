@@ -26,7 +26,8 @@ jobs:
               mkdir graph/svgs
           fi
           cargo build -r
-          sudo `which flamegraph` --no-inline  -o graph/svgs/compress.svg -- target/release/bita compress -i Cargo.lock lock.com
+          sudo `which flamegraph` --no-inline -- target/release/bita compress -i Cargo.lock lock.com > graph/svgs/compress.svg
+          sudo chmod 777 -R graph
       - name: Graphical Module Structure
         if: ${{ contains('sdsdsdsd', 'windows') }}
         run: |
