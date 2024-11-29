@@ -12,10 +12,23 @@ jobs:
       - name: Install cargo modules
         run: |
           cargo install cargo-modules
+          cargo install flamegraph
+          sudo apt-get install -y linux-tools-common linux-tools-generic linux-tools-`uname -r`
       - uses: actions/checkout@v4
         with:
           repository: 'oll3/bita'
+      - name: flamegraph generator 
+        run: |
+          if [[ ! -d graph ]];then
+            mkdir graph
+          fi
+          if [[ ! -d graph/svgs ]];then
+              mkdir graph/svgs
+          fi
+          cargo build -r
+          flamegraph -o graph/svgs/compress.svg -- target/release/bita compress -i Cargo.lock lock.com
       - name: Graphical Module Structure
+        if: ${{ contains('sdsdsdsd', 'windows') }}
         run: |
           if [[ ! -d graph ]];then
             mkdir graph
