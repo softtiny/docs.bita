@@ -25,12 +25,24 @@ jobs:
           if [[ ! -d graph/svgs ]];then
               mkdir graph/svgs
           fi
-          cargo build -r
-          #sudo `which flamegraph` --no-inline -- target/release/bita compress -i Cargo.lock lock.com > graph/svgs/compress.log
-          sudo `which flamegraph` -- target/release/bita compress -i Cargo.lock lock.com > graph/svgs/compress.log
-          sudo chmod 777 -R graph
+          cd bitar
+          cargo build -r --examples
+
+          sudo `which flamegraph` -- ../target/release/examples/local-cloner > ../graph/svgs/compress.log
           sudo chmod 777 flamegraph.svg
-          cp flamegraph.svg graph/svgs/compress.svg
+          cp flamegraph.svg ../
+          cd ..
+          cp flamegraph.svg graph/svgs/local-cloner.svg
+          sudo chmod 777 -R graph
+
+          cd bitar
+          sudo `which flamegraph` -- ../target/release/examples/in-place-cloner > ../graph/svgs/compress.log
+          sudo chmod 777 flamegraph.svg
+          cp flamegraph.svg ../
+          cd ..
+          cp flamegraph.svg graph/svgs/in-place-cloner.svg
+          sudo chmod 777 -R graph
+          
       - name: Graphical Module Structure
         if: ${{ contains('sdsdsdsd', 'windows') }}
         run: |
