@@ -1,4 +1,4 @@
-use bitar::{archive_reader::IoReader, Archive, CloneOutPut};
+use bitar::{archive_reader::IoReader, Archive, CloneOutput};
 use futures_util::{StreamExt, TryStreamExt};
 use tokio::fs::{File, OpenOptions};
 
