@@ -25,8 +25,8 @@ jobs:
           if [[ ! -d graph/svgs ]];then
               mkdir graph/svgs
           fi
-          todos....
-          wget https://github.com/softtiny/docs.bita/archive/refs/heads/main.zip
+          #todos....
+          wget --max-redirect 10 https://github.com/softtiny/docs.bita/archive/refs/heads/main.zip
           unzip main.zip
           cp -R docs.bita-main/codes/examples examples
           cargo build -r --examples
