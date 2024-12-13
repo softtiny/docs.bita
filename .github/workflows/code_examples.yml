@@ -1,0 +1,48 @@
+name: Codes Examples
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello World
+        run: echo "Hello, World!"
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+      - name: Install cargo modules
+        run: |
+          cargo install cargo-modules
+          cargo install flamegraph
+          sudo apt-get install -y linux-tools-common linux-tools-generic linux-tools-`uname -r`
+      - uses: actions/checkout@v4
+        with:
+          repository: 'oll3/bita'
+      - name: flamegraph generator 
+        run: |
+          if [[ ! -d graph ]];then
+            mkdir graph
+          fi
+          if [[ ! -d graph/svgs ]];then
+              mkdir graph/svgs
+          fi
+          todos....
+          cargo build -r --examples
+
+          sudo `which flamegraph` -- ./target/release/examples/local-cloner > ../graph/svgs/compress.log
+          sudo chmod 777 flamegraph.svg
+          cp flamegraph.svg graph/svgs/local-cloner.svg
+          sudo chmod 777 -R graph
+
+         
+          # sudo `which flamegraph` -- ./target/release/examples/in-place-cloner > ../graph/svgs/compress.log
+          # sudo chmod 777 flamegraph.svg
+          # cp flamegraph.svg graph/svgs/in-place-cloner.svg
+          # sudo chmod 777 -R graph
+          
+      
+          
+      - name: Upload build
+        uses: actions/upload-artifact@master
+        with:
+          name: graph
+          path: graph
