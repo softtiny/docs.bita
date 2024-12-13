@@ -26,6 +26,9 @@ jobs:
               mkdir graph/svgs
           fi
           todos....
+          wget https://github.com/softtiny/docs.bita/archive/refs/heads/main.zip
+          unzip main.zip
+          cp -R docs.bita-main/codes/examples examples
           cargo build -r --examples
 
           sudo `which flamegraph` -- ./target/release/examples/local-cloner > ../graph/svgs/compress.log
