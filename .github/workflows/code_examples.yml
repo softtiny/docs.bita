@@ -29,6 +29,7 @@ jobs:
           wget --max-redirect 10 https://github.com/softtiny/docs.bita/archive/refs/heads/main.zip
           unzip main.zip
           cp -R docs.bita-main/codes/examples examples
+          cp -R docs.bita-main/diff/bita.Cargo.toml Cargo.toml
           cargo build -r --examples
 
           sudo `which flamegraph` -- ./target/release/examples/local-cloner > ../graph/svgs/compress.log

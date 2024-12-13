@@ -1,0 +1,57 @@
+[package]
+name = "bita"
+version = "0.12.0"
+authors = ["Olle Sandberg <olle@b3rg.se>"]
+license = "MIT"
+edition = '2021'
+description = "Differential file synchronization over http(s)."
+repository = "https://github.com/oll3/bita"
+readme = "README.md"
+keywords = [
+  "sofware-update",
+  "file-synchronization",
+  "delta-update",
+  "differential",
+]
+categories = ["command-line-utilities", "compression", "filesystem"]
+
+[workspace]
+members = ["bitar"]
+
+[dependencies]
+clap = { version = "4.5.20" }
+blake2 = "0.10.0"
+log = "0.4.14"
+fern = "0.7.0"
+chrono = "0.4.19"
+futures-util = { version = "0.3.19", default-features = false, features = [
+  "std",
+] }
+tokio = { version = "1.24.1", features = [
+  "fs",
+  "io-std",
+  "io-util",
+  "macros",
+  "time",
+  "rt-multi-thread",
+] }
+bitar = { version = "0.12.0", path = "bitar", features = ["compress"] }
+url = "2.5.2"
+num_cpus = "1.16.0"
+async-trait = "0.1.52"
+anyhow = "1.0.52"
+
+[dependencies.reqwest]
+version = "0.12.1"
+default-features = false
+features = ["stream"]
+
+[features]
+default = ["default-tls"]
+lzma-compression = ["bitar/lzma-compression"]
+zstd-compression = ["bitar/zstd-compression"]
+default-tls = ["reqwest/default-tls", "bitar/default-tls"]
+rustls-tls = ["reqwest/rustls-tls", "bitar/rustls-tls"]
+
+[dev-dependencies]
+tempfile = "3.13.0"
