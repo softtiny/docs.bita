@@ -26,7 +26,7 @@ async fn main() -> Result<(),Box<dyn std::error::Error>> {
     //let example_seed = "bitar/examples/resources/example.seed";
 
     // open archive  which  source  we want to clone
-    let mut archive = Archive::try_init(IoReader::new(File::open(input_path).await?)).await?;
+    let archive = Archive::try_init(IoReader::new(File::open(input_path).await?)).await?;
     let _output = CloneOutput::new(
         OpenOptions::new()
             .create(true)
