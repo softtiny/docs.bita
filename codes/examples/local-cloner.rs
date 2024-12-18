@@ -1,12 +1,12 @@
 use bitar::{
     archive_reader::IoReader, 
     Archive, 
-    CloneOutput,
+    //CloneOutput,
 };
 //use futures_util::{StreamExt, TryStreamExt};
 use tokio::fs::{
     File, 
-    OpenOptions,
+    //OpenOptions,
 };
 
 // `main` function is not allowed to be `async`
