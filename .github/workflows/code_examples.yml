@@ -11,6 +11,7 @@ jobs:
       - uses: actions-rust-lang/setup-rust-toolchain@v1
       - name: Install cargo modules
         run: |
+          not work as expected
           cargo install cargo-modules
           cargo install flamegraph
           cargo install --locked samply
@@ -37,10 +38,11 @@ jobs:
           sudo chmod 777 flamegraph.svg
           cp flamegraph.svg graph/svgs/local-cloner.svg
           sudo chmod 777 -R graph
-          echo '1' | sudo tee /proc/sys/kernel/perf_event_paranoid
-          sudo `which samply` record -n -s ./target/debug/examples/local-cloner
-          sudo chmod 777 profile.json
-          cp profile.json graph/profile.json
+          # not work
+          # echo '1' | sudo tee /proc/sys/kernel/perf_event_paranoid
+          # sudo `which samply` record -n -s ./target/debug/examples/local-cloner
+          # sudo chmod 777 profile.json
+          # cp profile.json graph/profile.json
 
          
           # sudo `which flamegraph` -- ./target/debug/examples/in-place-cloner > ./graph/svgs/compress.log

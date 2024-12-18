@@ -18,6 +18,7 @@ jobs:
         with:
           repository: 'oll3/bita'
       - name: flamegraph generator 
+        if: ${{ contains('not work as expected', 'windows') }}
         run: |
           if [[ ! -d graph ]];then
             mkdir graph
@@ -44,7 +45,6 @@ jobs:
           sudo chmod 777 -R graph
           
       - name: Graphical Module Structure
-        if: ${{ contains('sdsdsdsd', 'windows') }}
         run: |
           if [[ ! -d graph ]];then
             mkdir graph
