@@ -21,13 +21,13 @@ use tokio::fs::{
 
 #[tokio::main]
 async fn main() -> Result<(),Box<dyn std::error::Error>> {
-    //let output_name = "sickan.jpg";
+    let output_name = "sickan.jpg";
     let input_path = "bitar/examples/resources/example-archive.cba";
     //let example_seed = "bitar/examples/resources/example.seed";
 
     // open archive  which  source  we want to clone
     let archive = Archive::try_init(IoReader::new(File::open(input_path).await?)).await?;
-    let _chunk_index =archive.build_source_index();
+    archive.build_source_index()
     // let _output = CloneOutput::new(
     //     OpenOptions::new()
     //         .create(true)

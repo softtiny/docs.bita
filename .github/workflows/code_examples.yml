@@ -13,6 +13,7 @@ jobs:
         run: |
           cargo install cargo-modules
           cargo install flamegraph
+          cargo install --locked samply
           sudo apt-get install -y linux-tools-common linux-tools-generic linux-tools-`uname -r`
       - uses: actions/checkout@v4
         with:
@@ -30,15 +31,18 @@ jobs:
           unzip main.zip
           cp -R docs.bita-main/codes/examples examples
           cp -R docs.bita-main/diff/bita.Cargo.toml Cargo.toml
-          cargo build -r --examples
+          cargo build --examples
 
-          sudo `which flamegraph` -- ./target/release/examples/local-cloner > ./graph/svgs/compress.log
+          sudo `which flamegraph` -- ./target/debug/examples/local-cloner > ./graph/svgs/compress.log
           sudo chmod 777 flamegraph.svg
           cp flamegraph.svg graph/svgs/local-cloner.svg
           sudo chmod 777 -R graph
+          sudo `which samply` record -n -s ./target/debug/examples/local-cloner
+          sudo chmod 777 profile.json
+          cp profile.json graph/profile.json
 
          
-          # sudo `which flamegraph` -- ./target/release/examples/in-place-cloner > ./graph/svgs/compress.log
+          # sudo `which flamegraph` -- ./target/debug/examples/in-place-cloner > ./graph/svgs/compress.log
           # sudo chmod 777 flamegraph.svg
           # cp flamegraph.svg graph/svgs/in-place-cloner.svg
           # sudo chmod 777 -R graph
