@@ -27,7 +27,7 @@ async fn main() -> Result<(),Box<dyn std::error::Error>> {
 
     // open archive  which  source  we want to clone
     let archive = Archive::try_init(IoReader::new(File::open(input_path).await?)).await?;
-    archive.build_source_index();
+    let _chunk_index =archive.build_source_index();
     // let _output = CloneOutput::new(
     //     OpenOptions::new()
     //         .create(true)
