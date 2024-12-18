@@ -37,6 +37,7 @@ jobs:
           sudo chmod 777 flamegraph.svg
           cp flamegraph.svg graph/svgs/local-cloner.svg
           sudo chmod 777 -R graph
+          echo '1' | sudo tee /proc/sys/kernel/perf_event_paranoid
           sudo `which samply` record -n -s ./target/debug/examples/local-cloner
           sudo chmod 777 profile.json
           cp profile.json graph/profile.json
