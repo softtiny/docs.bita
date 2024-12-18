@@ -21,7 +21,7 @@ use tokio::fs::{
 
 #[tokio::main]
 async fn main() -> Result<(),Box<dyn std::error::Error>> {
-    let output_name = "sickan.jpg";
+    //let output_name = "sickan.jpg";
     let input_path = "bitar/examples/resources/example-archive.cba";
     //let example_seed = "bitar/examples/resources/example.seed";
 
