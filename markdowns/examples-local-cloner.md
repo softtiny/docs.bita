@@ -57,10 +57,17 @@
         expect()
     `"]
     clone["`
+        CloneOutput(output_file,source_index)
         feed(chunk)
         chunks()
         reorder_in_place(output_index)
     `"]
+    index["`
+        ChunkIndex
+        new_empty(hash_chunk_length)
+        add_chunk(hash,chunk.len,&[offset])
+    `"]
     output_name --> open
     open --> clone
+    clone --> index
 ```
