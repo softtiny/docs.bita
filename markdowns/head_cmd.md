@@ -17,3 +17,18 @@ classDiagram
     }
 
 ```
+
+```mermaid
+zenuml
+    title head_cmd
+    cmd as "head_cmd::head_cmd()"
+    input as "chunk_input()"
+    cmd->input: input:AsyncRead + Unplin  + Send
+    cmd->input: chunker_config: &chunker::Config
+    cmd->input: hash_length: usize
+    cmd->input: num_chunker_buffers: usize
+    input->cmd: source_hash
+    input->cmd: archive_chunks
+    input->cmd: source_size
+    input->cmd: chunk_order
+```
