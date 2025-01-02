@@ -8,7 +8,7 @@ classDiagram
     note for Options "#[derive(Debug, Clone, PartialEq, Eq)]"
     class Options {
         force_create: bool
-        input: Option&lt;PathBuf&gt;
+        input: PathBuf;
         output: PathBuf
         chunker_config: chunker::Config
         compression: Option&lt;Compression&gt;
