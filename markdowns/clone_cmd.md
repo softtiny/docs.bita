@@ -33,19 +33,20 @@ classDiagram
 
 ```mermaid
 stateDiagram-v2
-    match_input: match opts.input_archive
+    state match_url <<choice>>
+    match_input: opts.input_archive
    
     [*] --> clone_cmd
     clone_cmd --> match_input
-    match_input --> InputArchive
+    match_input --> match_url
     state Local {
         IoReader
     }
-    InputArchive --> Local
+    match_url --> Local
     state remote {
         request 
     }
-    InputArchive --> remote
+    match_url --> remote
     Local --> clone_archive
     remote --> clone_archive
 ```
