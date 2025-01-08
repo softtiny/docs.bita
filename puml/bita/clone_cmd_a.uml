@@ -1,0 +1,37 @@
+@startuml
+start
+:clone_cmd;
+:clone_archive;
+:clone_from_archive;
+partition "**clone_from_archive**" {
+    note
+        ChunkIndex
+        ----
+        **map:HashMap<HashSum, ChunkLocation>**
+        hash_length
+    end note
+    :archive;
+    split
+        :chunk_stream(output_index);
+    split again
+        partition "**chunk_stream**" {
+            note
+                ChunkIndex
+                ChunkOffset[offset,size]
+            end note
+            :chunks;
+            :filter();
+            :map(ChunkOffset::new);
+        }
+        partition "**chunk_stream**" {
+            note
+                ArchiveReader
+                HttpReader
+            end note
+            :reader;
+            :read_chunks;
+        }
+    end split
+}
+stop
+@enduml
