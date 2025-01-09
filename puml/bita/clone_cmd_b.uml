@@ -1,0 +1,33 @@
+@startuml
+start
+partition "**chunk_stream**" {
+    note
+        ArchiveReader
+        HttpReader
+    end note
+    :reader;
+    split
+        :read_chunks;
+    split again
+        partition "read_chunks" {
+            note
+                ChunkReader
+                ----
+                request_builder,
+                chunk_buf: BytesMut::new(),
+                chunk_index: 0,
+                num_adjacent_reads: 0,
+                chunks,
+                request: None,
+            end note
+            :read_chunks;
+            :read_chunk_stream;
+            :ChunkReader;
+            
+        }
+    end split
+    :enumerate;
+    :map;
+}
+end
+@enduml
