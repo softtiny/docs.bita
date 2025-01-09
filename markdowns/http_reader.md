@@ -28,3 +28,15 @@ class ChunkReader {
 }
 
 ```
+
+```mermaid
+stateDiagram-v2
+state "HttpReader::from_request" as HRfr
+state "HttpReader.read_chunk_stream" as HRrcs
+state "ChunkReader" as CR
+state "ArchiveReader.read_chunks" as ARrc
+[*] --> HRfr
+HRfr --> ARrc
+ARrc --> HRrcs
+HRrcs --> CR
+```
