@@ -2,6 +2,7 @@
 start
 :clone_cmd;
 :clone_archive;
+:chunk_index_from_readable;
 :clone_from_archive;
 partition "**clone_from_archive**" {
     note
