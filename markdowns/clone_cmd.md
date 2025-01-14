@@ -12,6 +12,7 @@ classDiagram
         retry_delay: Duration
         receive_timeout: Option&lt;Duration&gt;
         headers: HeaderMap
+        +source_url: url
     }
     class InputArchive {
         Local(std::path::PathBuf)
@@ -28,6 +29,8 @@ classDiagram
         seed_output: bool
         verify_output: bool
         num_chunk_buffers: usize
+        +source_url: url
+        +split_archive: bool
     }
 ```
 
