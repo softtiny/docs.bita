@@ -8,6 +8,10 @@ classDiagram
 ChunkReader <|--  HttpReader
 class HttpReader {
     request_builder: RequestBuilder
+    split_head: bool
+    source_url: ~Url~
+    headers: HeaderMap
+    from_request_ext(request_builder,split_head)
     from_request(request_builder)
     from_url(url)
     read_chunk_stream(chunks: Vec~ChunkOffset~) -> ChunkReader 
@@ -21,6 +25,9 @@ class ChunkReader {
     chunk_index: usize
     num_adjacent_reads: usize
     request:HttpRangeRequest
+    split_head: bool
+    source_url: ~Url~
+    headers: HeaderMap
     poll_read(cx:context)
     adjacent_reads(chunks: &[ChunkOffset])->usize
     poll_next(cx:context) -> Poll
