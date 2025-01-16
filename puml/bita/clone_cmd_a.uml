@@ -10,16 +10,50 @@ partition "**clone_from_archive**" {
         **map:HashMap<HashSum, ChunkLocation>**
         hash_length
     end note
-    :archive;
     split
-        :chunk_stream(output_index);
+        :archive;
+    split again
+        partition "Archive::new" {
+            note
+                try_init_ext(mut reader: R,split_head: bool)
+            end note
+            :reader.read(0,14);
+            :verify_pre_header();
+            :dictionary_size;
+            :reader.read(14,size + 8(offset) + 64);
+            :dictionary;
+            if (split_head?) then (true)
+                :chunk_data_offset=0;
+            else(false)
+                :chunk_data_offset;
+            endif 
+            :archive_chunks;
+            :source_order;
+            :Archive{...};
+            note left
+                Ok(Self {
+                    reader,
+                    archive_chunks,
+                    source_order,
+                    chunk_data_offset,
+                    chunk_hash_length,
+                    source_order,
+                    source_total_size,
+                    source_checksum,
+                    total_chunks:usize,
+                        })
+            end note
+        }
+    end split
+    split
+        :chunk_stream(output.chunks()->output_index);
     split again
         partition "**chunk_stream**" {
             note
                 ChunkIndex
                 ChunkOffset[offset,size]
             end note
-            :chunks;
+            :output.chunks();
             :filter();
             :map(ChunkOffset::new);
         }
