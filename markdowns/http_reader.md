@@ -14,6 +14,7 @@ class HttpReader {
     from_request_ext(request_builder,split_head)
     from_request(request_builder)
     from_url(url)
+    set_source(self,source_url: Option~Url~)
     read_chunk_stream(chunks: Vec~ChunkOffset~) -> ChunkReader 
     read_at(offset,size)
     read_chunks(chunks: Vec~ChunkOffset~)
@@ -26,7 +27,7 @@ class ChunkReader {
     num_adjacent_reads: usize
     request:HttpRangeRequest
     split_head: bool
-    source_url: ~Url~
+    source_url: Option~Url~
     headers: HeaderMap
     poll_read(cx:context)
     adjacent_reads(chunks: &[ChunkOffset])->usize

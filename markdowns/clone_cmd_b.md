@@ -16,5 +16,6 @@ classDiagram
         clone_from_archive&lt;R, C&gt;(max_buffered_chunks,archive:&lt;R&gt;,output:&lt;C&gt;)
         chunk_index_from_readable&lt;R&gt;(hash_length,config,max_buffered_chunks,readable&lt;R&gt;)
         clone_archive&lt;R&gt;(opts: Options, reader: R)
+        clone_archive_ext&lt;R&gt;(opts: Options, reader: R, split_head: bool)
     }
 ```
