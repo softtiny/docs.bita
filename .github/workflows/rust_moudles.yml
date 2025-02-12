@@ -16,7 +16,7 @@ jobs:
           sudo apt-get install -y linux-tools-common linux-tools-generic linux-tools-`uname -r`
       - uses: actions/checkout@v4
         with:
-          repository: 'oll3/bita'
+          repository: 'seanmonstar/reqwest'
       - name: flamegraph generator 
         if: ${{ contains('not work as expected', 'windows') }}
         run: |
@@ -61,10 +61,9 @@ jobs:
           if [[ ! -d graph/svgs ]];then
               mkdir graph/svgs
           fi
-          cargo modules dependencies --package bitar --no-externs --no-fns --no-sysroot --no-traits --no-types --no-uses > graph/graph.dep.dot
-          cargo modules dependencies --package bita  --no-externs --no-sysroot > graph/bita.dep.dot
-          cargo modules structure  --package bita  | freeze -l txt -o graph/svgs/bita.structure.svg -
-          cargo modules structure  --package bitar  | freeze -l txt -o graph/svgs/bitar.structure.svg -
+          cargo modules dependencies --package reqwest --no-externs --no-fns --no-sysroot --no-traits --no-types --no-uses > graph/reqwest.dep.dot
+          #cargo modules dependencies --package reqwest  --no-externs --no-sysroot > graph/reqwest.more.dep.dot
+          cargo modules structure  --package reqwest  | freeze -l txt -o graph/svgs/reqwest.structure.svg -
           sudo apt-get install -y graphviz
           ls
           cd graph
