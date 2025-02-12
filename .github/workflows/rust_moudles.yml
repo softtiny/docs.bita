@@ -61,8 +61,7 @@ jobs:
           if [[ ! -d graph/svgs ]];then
               mkdir graph/svgs
           fi
-          cargo modules dependencies --package reqwest --no-externs --no-fns --no-sysroot --no-traits --no-types --no-uses > graph/reqwest.dep.dot
-          #cargo modules dependencies --package reqwest  --no-externs --no-sysroot > graph/reqwest.more.dep.dot
+          cargo modules dependencies --package reqwest  --no-externs --no-sysroot > graph/reqwest.more.dep.dot
           cargo modules structure  --package reqwest  | freeze -l txt -o graph/svgs/reqwest.structure.svg -
           sudo apt-get install -y graphviz
           ls
