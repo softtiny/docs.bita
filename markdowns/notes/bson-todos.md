@@ -19,9 +19,15 @@ title: Bson crate
 ---
 
 flowchart LR
+    bin_struct@{ shape: lin-doc, label: "
+        bson::Binary {
+            subtype:BinarySubtype::Generic,
+            bytes,
+        } 
+    " }
     bson ---- Document
     Document --- fn:new
     Document --- fn:from_reader --- BufReader::new
-    Document --- self:insert
+    Document --- self:insert --- Bson --- Bson::Binary  --- bin_struct
     Document --- self:to_writer --- Vec::new --- write_all --- write(pub trait Write)
 ```
