@@ -28,6 +28,7 @@ flowchart LR
     bson ---- Document
     Document --- fn:new
     Document --- fn:from_reader --- BufReader::new
-    Document --- self:insert --- Bson --- Bson::Binary  --- bin_struct
+    Document --- self:insert --- Bson --- Binary  --- bin_struct
+
     Document --- self:to_writer --- Vec::new --- write_all --- write(pub trait Write)
 ```
