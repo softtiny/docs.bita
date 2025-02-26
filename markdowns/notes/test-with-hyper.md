@@ -1,6 +1,7 @@
 # todos
 - [ ] hyper server response
 - [ ] hyper server time duration
+- [x] tokio task join
 
 ```sh
 # send http2 request to test server ok.

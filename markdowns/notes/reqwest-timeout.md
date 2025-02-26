@@ -2,6 +2,7 @@
 - [ ] request timeout event
 - [ ] idle socket
 - [ ] hyper server
+- [x] tokio task join
 
 ```rust
 let client_build = reqwest::Client::builder();
