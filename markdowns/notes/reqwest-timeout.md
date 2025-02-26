@@ -1,6 +1,7 @@
 # About Reqwest timeout steps
 - [ ] request timeout event
 - [ ] idle socket
+- [ ] hyper server
 
 ```rust
 let client_build = reqwest::Client::builder();
