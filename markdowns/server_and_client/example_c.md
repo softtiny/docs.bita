@@ -3,7 +3,6 @@
 ### Example 3: Connection timeout error due to non-existent server
 
 
-
 ```mermaid
 ---
 Example C
