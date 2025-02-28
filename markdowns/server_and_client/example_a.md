@@ -18,6 +18,10 @@ mindmap
         reqwest
 ```
 
+
+This example shows a server that takes 5 seconds to respond and a client with a 2-second timeout, demonstrating a timeout occurring on the client side.
+
+
 ```mermaid
 ---
 Example A
