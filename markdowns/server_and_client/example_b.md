@@ -1,5 +1,8 @@
 # Server and client demo
 
+### Example 2: Fast endpoint succeeds, slow endpoint times out
+
+
 
 ```mermaid
 ---

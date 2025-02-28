@@ -1,5 +1,7 @@
 # Server and client demo
 
+### Example 1: Client will timeout after 2 seconds while server takes 5 seconds
+
 ## Cargo.toml
 
 ```mermaid
