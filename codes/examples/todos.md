@@ -12,3 +12,10 @@
         bitar --> examples;
         bita --> examples;
 ```
+
+```mermaid
+    graph TD;
+        bitar --> proxy;
+        proxy --> list;
+        proxy --> speed;
+```
