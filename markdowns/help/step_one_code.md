@@ -52,11 +52,23 @@ let handa=tokio::spawn(async move{
     filter_out_all(stepa.iter().map(|aa|aa.clone()).collect(),&mut worksc).await;
 });
 ```
-- Step 3: **Test Proxy Speed**
-    - Test the speed of valid proxies:
-        - Use each valid proxy to download a small test file (e.g., 1MB in size).
-        - Record the download completion time and calculate the download speed (MB/s).
-    - Sort by speed and retain the top N fastest proxies (N set based on needs, e.g., 3).
+
+```rust
+// - Test the speed of valid proxies:
+//     - Use each valid proxy to download a small test file (e.g., 1MB in size).
+//     - Record the download completion time and calculate the download speed (MB/s).
+// - Sort by speed and retain the top N fastest proxies (N set based on needs, e.g., 3).
+ let start = std::time::Instant::now();
+ let client_builder = reqwest::Client::builder()
+ .add_root_certificate(cert)
+ .proxy(reqwest::Proxy::http("socks5://127.0.0.1:1080").expect("failed to socks5 proxy socks5"))
+ .connect_timeout(timeout)
+ .read_timeout(timeout);
+ let client = client_builder.build().expect("failed to build client");
+ let response = client.get(url).send().await?;
+ let msg = response.text().await.expect("get txt err");
+ let duration = start.elapsed();
+```
 
 
 #### 3. Download Preparation
