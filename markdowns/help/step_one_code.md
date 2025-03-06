@@ -73,16 +73,39 @@ let handa=tokio::spawn(async move{
 
 #### 3. Download Preparation
 
-- **Select Proxy:**
-    - Choose the top-ranked proxy (optimal proxy) from the filtered list of fast proxies.
-- **Configure Download Environment:**
-    - Set the HTTP client to use the selected SOCKS5 proxy (IP and port).
-    - Specify the target file’s URL.
-    - Configure download parameters:
-        - Support resumable downloads (if the file is large).
-        - Set up segmented downloads (optional, e.g., split the file into multiple parts for parallel downloading).
-        - Define a timeout period (e.g., 30 seconds).
 ```rust
+
+// - **Select Proxy:**
+//     - Choose the top-ranked proxy (optimal proxy) from the filtered list of fast proxies.
+// - **Configure Download Environment:**
+//     - Set the HTTP client to use the selected SOCKS5 proxy (IP and port).
+//     - Specify the target file’s URL.
+//     - Configure download parameters:
+//         - Support resumable downloads (if the file is large).
+//         - Set up segmented downloads (optional, e.g., split the file into multiple parts for parallel downloading).
+//         - Define a timeout period (e.g., 30 seconds).
+let mut works2:Vec<&Ipres> = vec!();
+for ipres in works.iter() {
+    works2.push(ipres)
+}
+let mut sorted = false;
+let length = works.len();
+if length ==0 {
+    sorted=true;
+}
+
+while !sorted {
+    sorted = true;
+    for i in 0..(length-1) {
+        if works2[i].usetime > works2[i+1].usetime {
+            sorted = false;
+            let tmp = works2[i];
+            let tmp2 = works2[i+1];
+            works2[i] = tmp2;
+            works2[i+1]= tmp;
+        }
+    }
+}
 ```
 
 #### 4. Download Execution Process
