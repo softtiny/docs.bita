@@ -82,7 +82,8 @@ let handa=tokio::spawn(async move{
         - Support resumable downloads (if the file is large).
         - Set up segmented downloads (optional, e.g., split the file into multiple parts for parallel downloading).
         - Define a timeout period (e.g., 30 seconds).
-
+```rust
+```
 
 #### 4. Download Execution Process
 
