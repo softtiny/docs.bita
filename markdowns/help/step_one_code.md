@@ -80,10 +80,7 @@ let handa=tokio::spawn(async move{
 // - **Configure Download Environment:**
 //     - Set the HTTP client to use the selected SOCKS5 proxy (IP and port).
 //     - Specify the target file’s URL.
-//     - Configure download parameters:
-//         - Support resumable downloads (if the file is large).
-//         - Set up segmented downloads (optional, e.g., split the file into multiple parts for parallel downloading).
-//         - Define a timeout period (e.g., 30 seconds).
+
 let mut works2:Vec<&Ipres> = vec!();
 for ipres in works.iter() {
     works2.push(ipres)
@@ -106,6 +103,11 @@ while !sorted {
         }
     }
 }
+
+//     - Configure download parameters:
+//         - Support resumable downloads (if the file is large).
+//         - Set up segmented downloads (optional, e.g., split the file into multiple parts for parallel downloading).
+//         - Define a timeout period (e.g., 30 seconds).
 ```
 
 #### 4. Download Execution Process
