@@ -113,7 +113,15 @@ while !sorted {
 #### 4. Download Execution Process
 
 - Step 1: **Initiate Download Request**
-    - Send an HTTP download request to the target URL via the selected SOCKS5 proxy.
+```rust
+/// Send an HTTP download request to the target URL via the selected SOCKS5 proxy.
+ let client_builder = reqwest::Client::builder()
+ .add_root_certificate(cert)
+ .proxy(reqwest::Proxy::http("socks5://127.0.0.1:1080").expect("failed to socks5 proxy socks5"))
+ .connect_timeout(timeout)
+ .read_timeout(timeout);
+```
+
     - If segmented downloading is supported, use the Range header to specify the download range.
 - Step 2: **Monitor Download Status**
     - Track download progress in real-time (downloaded bytes/total bytes).
