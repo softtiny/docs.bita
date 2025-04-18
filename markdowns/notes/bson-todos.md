@@ -34,6 +34,7 @@ flowchart LR
 ```
 
 ### Bson write to file
+
 ```rust
 use bson::{Binary, Bson, Document};
 use bson::spec::BinarySubtype;
@@ -50,6 +51,17 @@ let mut buff = Vec::new();
 doc.to_writer(&mut buff).expect("failed to covert doc to buff");
 let mut output = File::create("../.tmp/obj.bson").expect("faile to open output file");
 output.write_all(&buff).expect("failed to write to output file break");
+```
+
+
+### Reqwest Response Bytes 
+
+```rust
+let url = "https://xx.xx";
+let mut client_builder = reqwest::Client::builder().build().expect("failed to build client build");
+
+let response = client_builder.get(url).header(reqwest::header::RANGE,"bytes=0-40860").send().await.expect("request 0-40k failed");
+let bytes = response.bytes().await.expect("request 0-40 break");
 ```
 
 ```shell
