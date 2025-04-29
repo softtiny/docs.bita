@@ -45,3 +45,25 @@ fn loop_find_run(){
     }
 }
 ```
+
+
+- Cargo test
+    - "--test" tokio_flow loop_find_async 
+        - running 1 tests
+        - test loop_find_async has been running for over 60 seconds
+        - two thread
+            - tokio_flow-id.exe xx
+            - tokio_flow-id.exe xx
+```rust
+//tokio_flow.rs
+#[tokio::test]
+async fn loop_find_async(){
+    let mut count = 0;
+    loop {
+        count += 1;
+        if count > 2{
+            count = 0;
+        }
+    }
+}
+```
