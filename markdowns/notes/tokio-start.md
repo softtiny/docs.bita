@@ -67,3 +67,78 @@ async fn loop_find_async(){
     }
 }
 ```
+
+## Two === 2
+```rust
+#[tokio::test]
+async fn loop_async_with_sleep(){
+    tokio::time::sleep(std::time::Duration::from_secs(13203));
+    let mut count = 0;
+    loop {
+        count += 1;
+        if count > 2{
+            count = 0;
+        }
+    }
+}
+
+//also 2
+#[tokio::test]
+async fn loop_async_sleep_await(){
+    tokio::time::sleep(std::time::Duration::from_secs(13203)).await;
+}
+
+
+// also 2 
+// also 2 2 2
+// also 2 2 2 2 2
+#[tokio::test]
+async fn loop_asyncs_join(){
+    //method cannot be called on `Pin<&mut MaybeDone<()>>` due to unsatisfied trait bounds
+    //join!(tokio::time::sleep(std::time::Duration::from_secs(13203)).await);
+    join!(
+        tokio::time::sleep(std::time::Duration::from_secs(13203)),
+        tokio::time::sleep(std::time::Duration::from_secs(13203)),
+        tokio::time::sleep(std::time::Duration::from_secs(13203)),
+        tokio::time::sleep(std::time::Duration::from_secs(13203)),
+        tokio::time::sleep(std::time::Duration::from_secs(13203))
+    );
+}
+```
+
+
+
+- Cargo test
+    - "--test" tokio_flow build_thread_w2 
+        - running 1 tests
+        - test build_thread_w2 has been running for over 60 seconds
+        - 4 thread
+            - tokio_flow-id.exe xx 1
+                - runtime test 
+            - tokio_flow-id.exe xx 2
+                - test filter build_thread_w2
+            - tokio_flow-id.exe xx 3
+            - tokio_flow-id.exe xx 4
+                - runtime::Builder::new_multi_thread().worker_threads(2).enable_all()
+
+```rust
+//tokio_flow.rs
+#[test]
+fn build_thread_w2(){
+    runtime::Builder::new_multi_thread()
+        .worker_threads(2)
+        .enable_all()
+        .build()
+        .unwrap()
+        .block_on(async move {
+            let mut count = 0;
+            loop {
+                count += 1;
+                if count > 2{
+                    count = 0;
+                }
+            }
+
+        })
+}
+```
