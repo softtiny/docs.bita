@@ -154,6 +154,12 @@ fn build_thread_w2(){
     - std::task::Context
         - args[1] code "context: &mut std::task::Context<'_>"
         - context.waker().wake_by_ref()
+        - methods: waker(), from_waker(), ext() ...
     - std::task::Poll
         - output code "std::task::Poll<Self::Output>"
         - std::task::Poll::Pending
+            - if the future chooses to return Poll::Pending, it must also store the waker somehow and call Waker::wake() when the future should be polled again.
+        - std::task::Poll::Reading()
+        - methods: map(f:F), is_read(), is_pending(),map_oK(),map_err()
+    - std::task::Waker
+        - methods: wake(), wake_by_ref(), will_wake(), data(), vtable()
