@@ -142,3 +142,18 @@ fn build_thread_w2(){
         })
 }
 ```
+
+## Create Simple Future
+
+- import
+    - std::future::Future
+        - impl Future for SimpleFuture
+            - fn poll(args) -> output
+    - std::pin:Pin
+        - args[0] code  "mut self: std::pin::Pin<&mut Self>"
+    - std::task::Context
+        - args[1] code "context: &mut std::task::Context<'_>"
+        - context.waker().wake_by_ref()
+    - std::task::Poll
+        - output code "std::task::Poll<Self::Output>"
+        - std::task::Poll::Pending
