@@ -163,3 +163,109 @@ fn build_thread_w2(){
         - methods: map(f:F), is_read(), is_pending(),map_oK(),map_err()
     - std::task::Waker
         - methods: wake(), wake_by_ref(), will_wake(), data(), vtable()
+
+
+## Simple Future Code
+
+```rust
+
+
+struct SimpleFuture {
+    counter: u32,
+}
+
+impl SimpleFuture {
+    fn new() -> Self {
+        SimpleFuture { counter: 0 }
+    }
+}
+
+impl std::future::Future for SimpleFuture {
+    type Output = String;
+    fn poll(mut self: std::pin::Pin<&mut Self>, cx: &mut std::task::Context<'_>) -> std::task::Poll<Self::Output> {
+        self.counter += 1;
+        if self.counter > 3 {
+            std::task::Poll::Ready(format!("Future resolved after {} polls", self.counter))
+        } else {
+            println!("Future is pending,poll count: {}", self.counter);
+            cx.waker().wake_by_ref();
+            std::task::Poll::Pending
+        }
+    }
+}
+
+#[tokio::test]
+async fn test_simple_future(){
+    println!("run simplefuture");
+    let simple = SimpleFuture::new();
+    let res = simple.await;
+    println!("run simplefuture:{}",res);
+}
+
+
+
+// Define dummy functions for the vtable operations
+unsafe fn dummy_clone(data: *const ()) -> std::task::RawWaker {
+    std::task::RawWaker::new(data, &DUMMY_VTABLE)
+}
+
+unsafe fn dummy_wake(data: *const ()) {
+    // Do nothing
+}
+
+unsafe fn dummy_wake_by_ref(data: *const ()) {
+    // Do nothing
+}
+
+unsafe fn dummy_drop(data: *const ()) {
+    // Do nothing
+}
+
+// Create the dummy RawWakerVTable
+static DUMMY_VTABLE: std::task::RawWakerVTable = std::task::RawWakerVTable::new(
+    dummy_clone,
+    dummy_wake,
+    dummy_wake_by_ref,
+    dummy_drop,
+);
+
+
+fn minimal_waker() -> std::task::Waker {
+    // Create a dummy raw waker vtable
+    let raw_waker_vtable = &std::task::RawWakerVTable::new(
+        |_| std::task::RawWaker::new(std::ptr::null(), &DUMMY_VTABLE), // clone
+        |_| {},                                               // wake
+        |_| {},                                               // wake_by_ref
+        |_| {},                                               // drop
+    );
+
+    // Create a dummy raw waker
+    let raw_waker = std::task::RawWaker::new(std::ptr::null(), raw_waker_vtable);
+
+    // Create a Waker from the raw waker
+    unsafe { std::task::Waker::from_raw(raw_waker) }
+}
+
+#[test]
+fn run_future_simple() {
+    let mut future  = SimpleFuture::new();
+    let mut future = unsafe { std::pin::Pin::new_unchecked(&mut future) };
+    
+    let waker = minimal_waker();
+    let mut context = std::task::Context::from_waker(&waker);
+
+    loop {
+        //future().as_mut().poll() need use std::future::Future;
+        match future.as_mut().poll(&mut context){
+            std::task::Poll::Ready(result) => {
+                println!("Result: {}", result);
+                break;
+            }
+            std::task::Poll::Pending => {
+                println!("Future is pending");
+                std::thread::sleep(std::time::Duration::from_millis(5000)); //wait 5s 
+            }
+        }
+    }
+}
+```
