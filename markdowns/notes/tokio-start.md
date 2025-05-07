@@ -255,7 +255,7 @@ fn run_future_simple() {
     let mut context = std::task::Context::from_waker(&waker);
 
     loop {
-        //future().as_mut().poll() need use std::future::Future;
+        //future().as_mut().poll(context = std::task::Context::from_waker(..)) need use std::future::Future;
         match future.as_mut().poll(&mut context){
             std::task::Poll::Ready(result) => {
                 println!("Result: {}", result);
