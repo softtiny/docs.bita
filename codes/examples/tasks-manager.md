@@ -20,3 +20,10 @@ flowchart LR
     taskD --> D --> run-50 --> done
     taskE --> E --> run-20 --> closeE
 ```
+
+## create project
+```
+cargo new tokio-demo-a
+cd tokio-demo-a
+cargo add tokio -F rt-multi-thread,macros
+```
