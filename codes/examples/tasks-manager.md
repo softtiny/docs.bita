@@ -25,5 +25,5 @@ flowchart LR
 ```
 cargo new tokio-demo-a
 cd tokio-demo-a
-cargo add tokio -F rt-multi-thread,macros
+cargo add tokio -F rt-multi-thread,macros,time
 ```

@@ -6,6 +6,12 @@ use std::time::Duration;
 
 async fn task_a() {
     println!("run task a!!");
+    let mut start = 0;
+    let end = 100;
+    while start <= end {
+        tokio::time::sleep(Duration::from_secs(1)).await;
+        start += 1;
+    }
 }
 
 async fn main_run() {
